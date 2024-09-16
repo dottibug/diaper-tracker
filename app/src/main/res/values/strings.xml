@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Diaper Tracker</string>
+    <string name="diaperContentDescription">A cute diaper icon with a smiley face</string>
+    <string name="radioButtonDirty">Dirty</string>
+    <string name="radioButtonWet">Wet</string>
+    <string name="radioButtonDry">Dry</string>
+    <string name="hintTime">Enter time</string>
+    <string name="buttonAddDiaper">Add Diaper</string>
+    <string name="buttonClear">Clear All</string>
+    <string name="header">Diaper Tracker</string>
+    <string name="diaperCount">%1$d diaper%2$s changed</string>
+    <string name="diaperList">%1$s\n%2$s</string>
+    <string name="diaperEntry">&#x2022; %1$s diaper changed at %2$s %3$s</string>
+    <string name="buttonAM">am</string>
+    <string name="buttonPM">pm</string>
+</resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="indianRed">#B9646E</color>
+    <color name="floralWhite">#FCF7ED</color>
+    <color name="moonstone">#63B0CD</color>
+    <color name="moonstoneLight">#8063B0CD</color>
+    <color name="gunmetal">#2F323A</color>
+</resources>
