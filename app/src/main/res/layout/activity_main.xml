@@ -1,216 +1,227 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ImageView
-        android:id="@+id/imageViewDiaper"
-        android:layout_width="113dp"
-        android:layout_height="127dp"
-        android:layout_marginTop="24dp"
-        android:contentDescription="@string/diaperContentDescription"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.02"
-        app:srcCompat="@drawable/diaper" />
+    <data>
+        <variable
+            name="diaperMain"
+            type="com.example.diapertracker.MainActivity" />
+    </data>
 
-    <RadioGroup
-        android:id="@+id/radioGroup"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewDiaper"
-        app:layout_constraintVertical_bias="0.01">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
 
-        <RadioButton
-            android:id="@+id/radioButtonDry"
-            style="@style/fontStyle"
+        <ImageView
+            android:id="@+id/imageViewDiaper"
+            android:layout_width="113dp"
+            android:layout_height="127dp"
+            android:layout_marginTop="24dp"
+            android:contentDescription="@string/diaperContentDescription"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.02"
+            app:srcCompat="@drawable/diaper" />
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:checked="true"
-            android:text="@string/radioButtonDry" />
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewDiaper"
+            app:layout_constraintVertical_bias="0.01">
 
-        <RadioButton
-            android:id="@+id/radioButtonDirty"
-            style="@style/fontStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/radioButtonDirty" />
-
-        <RadioButton
-            android:id="@+id/radioButtonWet"
-            style="@style/fontStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/radioButtonWet" />
-
-    </RadioGroup>
-
-    <EditText
-        android:id="@+id/editTextTime"
-        style="@style/fontStyle"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="32dp"
-        android:autofillHints="no"
-        android:ems="10"
-        android:hint="@string/hintTime"
-        android:inputType="time"
-        android:textAlignment="center"
-        android:textColorHint="@color/gunmetal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/toggleButtonAmPm"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/toggleButtonAmPm"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup"
-        app:layout_constraintVertical_bias="0.04" />
-
-    <com.google.android.material.button.MaterialButtonToggleGroup
-        android:id="@+id/toggleButtonAmPm"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        app:singleSelection="true"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextTime"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/editTextTime"
-        app:layout_constraintTop_toTopOf="@+id/editTextTime">
-
-        <Button
-            android:id="@+id/buttonAM"
-            style="?attr/materialButtonOutlinedStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:fontFamily="@font/roboto_bold"
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp"
-            android:text="@string/buttonAM"
-            android:textAllCaps="true" />
-
-        <Button
-            android:id="@+id/buttonPM"
-            style="?attr/materialButtonOutlinedStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto_bold"
-            android:text="@string/buttonPM"
-            android:textAllCaps="true"
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp"
-            android:layout_weight="1"/>
-    </com.google.android.material.button.MaterialButtonToggleGroup>
-
-    <Button
-        android:id="@+id/buttonAddDiaper"
-        style="@style/buttonStyle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="16dp"
-        android:text="@string/buttonAddDiaper"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/buttonClear"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTime"
-        app:layout_constraintVertical_bias="0.06" />
-
-    <Button
-        android:id="@+id/buttonClear"
-        style="@style/buttonStyle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="32dp"
-        android:text="@string/buttonClear"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/buttonAddDiaper"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/buttonAddDiaper"
-        app:layout_constraintTop_toTopOf="@+id/buttonAddDiaper" />
-
-    <TextView
-        android:id="@+id/textViewHeader"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:fontFamily="@font/roboto_bold"
-        android:text="@string/header"
-        android:textAlignment="center"
-        android:textColor="@color/gunmetal"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonAddDiaper"
-        app:layout_constraintVertical_bias="0.06999999" />
-
-    <ScrollView
-        android:id="@+id/scrollView2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="24dp"
-        app:layout_constraintBottom_toTopOf="@+id/textViewDiaperCount"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewHeader"
-        app:layout_constraintVertical_bias="0.5">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/textViewDiaperList"
+            <RadioButton
+                android:id="@+id/radioButtonDry"
                 style="@style/fontStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"
+                android:text="@string/radioButtonDry" />
+
+            <RadioButton
+                android:id="@+id/radioButtonDirty"
+                style="@style/fontStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/radioButtonDirty" />
+
+            <RadioButton
+                android:id="@+id/radioButtonWet"
+                style="@style/fontStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/radioButtonWet" />
+
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/editTextTime"
+            style="@style/fontStyle"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="32dp"
+            android:autofillHints="no"
+            android:ems="10"
+            android:hint="@string/hintTime"
+            android:inputType="time"
+            android:textAlignment="center"
+            android:textColorHint="@color/gunmetal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/toggleButtonAmPm"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/toggleButtonAmPm"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+            app:layout_constraintVertical_bias="0.04" />
+
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/toggleButtonAmPm"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            app:singleSelection="true"
+            app:layout_constraintBottom_toBottomOf="@+id/editTextTime"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/editTextTime"
+            app:layout_constraintTop_toTopOf="@+id/editTextTime">
+
+            <Button
+                android:id="@+id/buttonAM"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/roboto_bold"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:text="@string/buttonAM"
+                android:textAllCaps="true" />
+
+            <Button
+                android:id="@+id/buttonPM"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_bold"
+                android:text="@string/buttonPM"
+                android:textAllCaps="true"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:layout_weight="1" />
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+
+        <Button
+            android:id="@+id/buttonAddDiaper"
+            style="@style/buttonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/buttonAddDiaper"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/buttonClear"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTime"
+            app:layout_constraintVertical_bias="0.06" />
+
+        <Button
+            android:id="@+id/buttonClear"
+            style="@style/buttonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="32dp"
+            android:text="@string/buttonClear"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/buttonAddDiaper"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/buttonAddDiaper"
+            app:layout_constraintTop_toTopOf="@+id/buttonAddDiaper" />
+
+        <TextView
+            android:id="@+id/textViewHeader"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="@string/header"
+            android:textAlignment="center"
+            android:textColor="@color/gunmetal"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonAddDiaper"
+            app:layout_constraintVertical_bias="0.06999999" />
+
+        <ScrollView
+            android:id="@+id/scrollView2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="24dp"
+            app:layout_constraintBottom_toTopOf="@+id/textViewDiaperCount"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewHeader"
+            app:layout_constraintVertical_bias="0.5">
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/diaperList"
-                android:textAlignment="textStart"
-                android:textSize="16sp"
-                app:lineHeight="30sp"
-                tools:visibility="invisible" />
-        </LinearLayout>
-    </ScrollView>
+                android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textViewDiaperCount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:fontFamily="@font/roboto_bold"
-        android:text="@string/diaperCount"
-        android:textColor="@color/indianRed"
-        android:textSize="16sp"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+                <TextView
+                    android:id="@+id/textViewDiaperList"
+                    style="@style/fontStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/diaperList"
+                    android:textAlignment="textStart"
+                    android:textSize="16sp"
+                    app:lineHeight="30sp"
+                    tools:visibility="invisible" />
+            </LinearLayout>
+        </ScrollView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+<!--            android:text="@string/diaperCount"-->
+<!--            android:visibility="invisible"-->
+        <TextView
+            android:id="@+id/textViewDiaperCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="@{diaperMain.diaperCount}"
+            android:textColor="@color/indianRed"
+            android:textSize="16sp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
