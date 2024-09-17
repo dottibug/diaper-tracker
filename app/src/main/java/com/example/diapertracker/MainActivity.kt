@@ -1,6 +1,7 @@
 package com.example.diapertracker
 
 import android.content.Context
+import android.icu.text.SimpleDateFormat
 import android.icu.util.Calendar
 import android.os.Bundle
 import android.text.format.DateFormat
@@ -13,6 +14,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.databinding.DataBindingUtil
 import com.example.diapertracker.databinding.ActivityMainBinding
+import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -49,7 +51,7 @@ class MainActivity : AppCompatActivity() {
     private fun initialize() {
         binding.textViewDiaperList.visibility = TextView.INVISIBLE
         imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        defaultTimeToggle()
+        setTimeToggle()
     }
 
     // Add diaper to list
@@ -155,7 +157,7 @@ class MainActivity : AppCompatActivity() {
         binding.radioButtonDirty.isChecked = false
         binding.radioButtonWet.isChecked = false
         clearTime()
-        defaultTimeToggle()
+        setTimeToggle()
     }
 
     // Clear diaper list
@@ -181,8 +183,13 @@ class MainActivity : AppCompatActivity() {
         imm.hideSoftInputFromWindow(binding.editTextTime.windowToken, 0)
     }
 
-    // Set the am/pm toggle button to AM
-    private fun defaultTimeToggle() {
-        binding.toggleButtonAmPm.check(R.id.buttonAM)
+    // Set the am/pm default toggle button to AM or PM depending on the current time
+    private fun setTimeToggle() {
+        val currentTime = Calendar.getInstance().time
+        val amPm = SimpleDateFormat("a", Locale.getDefault()).format(currentTime)
+        val amPmFormatted = amPm.substring(0, 1).uppercase() + amPm.substring(2, 3).uppercase()
+        val timeToggle = binding.toggleButtonAmPm
+        if (amPmFormatted == "AM") timeToggle.check(R.id.buttonAM)
+        else timeToggle.check(R.id.buttonPM)
     }
 }
