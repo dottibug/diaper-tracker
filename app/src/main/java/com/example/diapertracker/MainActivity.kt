@@ -137,6 +137,7 @@ class MainActivity : AppCompatActivity() {
     private fun clear() {
         resetDiaperInput()
         clearDiaperList()
+        resetDiaperCountSummary()
         resetDiaperCounter()
         hideKeyboard()
     }
@@ -167,6 +168,12 @@ class MainActivity : AppCompatActivity() {
     // Reset the diaper counter
     private fun resetDiaperCounter() {
         diaperCounter = 0
+    }
+
+    // Reset diaper count summary
+    private fun resetDiaperCountSummary() {
+        diaperCount = ""
+        binding.invalidateAll()
     }
 
     // Hide keyboard
