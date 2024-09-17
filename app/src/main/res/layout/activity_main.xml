@@ -207,8 +207,6 @@
             </LinearLayout>
         </ScrollView>
 
-<!--            android:text="@string/diaperCount"-->
-<!--            android:visibility="invisible"-->
         <TextView
             android:id="@+id/textViewDiaperCount"
             android:layout_width="wrap_content"
